@@ -17,9 +17,11 @@ class DrinkCard extends StatelessWidget{
       ),
       child:Row(
         children: <Widget>[
+          
           Container(
-              width: 10,
-              height: 75,
+            
+              width: 15,
+              height: 150,
               color: _drinkcard.getColor(),
               
             ),  
@@ -28,10 +30,8 @@ class DrinkCard extends StatelessWidget{
             title: Text(_drinkcard.drink.name),
             subtitle: Text("Vol: " + _drinkcard.drink.alcohol.toString() +"% - " + _drinkcard.drink.vol.toString() + "L" ),
             ),
-          ),
-          Text(_drinkcard.time.hour.toString() + " : " + _drinkcard.time.minute.toString()),
-
-            
+          ),  
+          Text(_drinkcard.time.hour.toString() + " : " + _drinkcard.time.minute.toString(),),   
       ],)
           
     );

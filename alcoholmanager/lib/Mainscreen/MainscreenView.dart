@@ -8,20 +8,41 @@ class MainscreenView extends MainscreenState{
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('data'),
-        ),
         
-        body: new ListView.builder(
+        
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: 200,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text("data"),
+              ),
+              floating: true,
+
+            ),
+            SliverFixedExtentList(
+              itemExtent: 100,
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext contex, int index){
+                  return DrinkCard(widget.testservice.drinkList[index]);
+                },
+                childCount: widget.testservice.drinkList.length,
+              ),)
+              /*ListView.builder(
               padding: new EdgeInsets.all(8.0),
               itemCount: widget.testservice.drinkList.length,
               itemBuilder: (BuildContext context, int index) {
                 return DrinkCard(widget.testservice.drinkList[index]);
-                    
-                  
-                
-              }),
+              }),*/
+          ]
+
+
           
+          
+        )
+        
+        
+       
       ),
 
     );
