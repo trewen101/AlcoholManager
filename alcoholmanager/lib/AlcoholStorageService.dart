@@ -1,9 +1,9 @@
 import 'package:alcoholmanager/Drink.dart';
 
-class AlcoholService {
+class AlcoholStorageService {
   List<Drink> _drinkList;
 
-  AlcoholService(){
+  AlcoholStorageService(){
     drinkList = List<Drink>(); 
     drinkList.add(Drink("Punti Halo", 0.5, 5)); 
     drinkList.add(Drink("Gösswer Normal", 0.3, 7)); 

@@ -18,9 +18,9 @@ class DrinkCardData{
   
   DateTime get time => _time;
 
-  set time(DateTime value) {
-      _time = value;
-    }
+  set time(DateTime value)  {
+    _time = value;
+  }
 
   MaterialColor getColor(){
     if(_drink.alcohol<10){
