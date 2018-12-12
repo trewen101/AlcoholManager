@@ -1,5 +1,6 @@
 import 'package:alcoholmanager/AlcholSelectedService.dart';
 import 'package:alcoholmanager/AlcoholStorageService.dart';
+import 'package:alcoholmanager/CalculationService.dart';
 import 'package:alcoholmanager/Drink.dart';
 import 'package:alcoholmanager/Mainscreen/MainscreenView.dart';
 import 'package:flutter/widgets.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/widgets.dart';
 class Mainscreen extends StatefulWidget{
   AlcoholStorageService storedAlcohol = AlcoholStorageService(); 
   AlcoholSelectedService  selectedAlcohol = AlcoholSelectedService();
+  CalculationService calculationService = CalculationService();
     @override
     State<StatefulWidget> createState() {
       return MainscreenView();

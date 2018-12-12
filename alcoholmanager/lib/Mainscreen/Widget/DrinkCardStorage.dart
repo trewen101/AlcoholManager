@@ -16,7 +16,6 @@ class DrinkCardStorage extends StatelessWidget{
         borderRadius: BorderRadius.circular(15.0)
       ),
       child:Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           
           

@@ -6,6 +6,15 @@ import 'package:alcoholmanager/Mainscreen/Widget/DrinkCardStorage.dart';
 import 'package:flutter/material.dart';
 import 'package:sliver_fab/sliver_fab.dart';
 class MainscreenView extends MainscreenState{
+
+  void addItemToList(int index){
+    setState(() {
+          
+    widget.selectedAlcohol.drinkList.add(widget.storedAlcohol.drinkList[index]);
+    widget.calculationService.add(widget.storedAlcohol.drinkList[index].alcohol);
+        });
+  }
+
   
   @override
   Widget build(BuildContext context) {
@@ -25,9 +34,12 @@ class MainscreenView extends MainscreenState{
                 return GestureDetector(
                   child:DrinkCardStorage(widget.storedAlcohol.drinkList[index]),
                   onTap: (){
-                  widget.selectedAlcohol.drinkList.add(widget.storedAlcohol.drinkList[index]);
+                  addItemToList(index);
                   print(widget.selectedAlcohol.drinkList.length);
-                });
+                }
+                  
+                )
+                ;
               }),
             );
           });   
@@ -51,7 +63,7 @@ class MainscreenView extends MainscreenState{
               expandedHeight: 200,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
-                title: Text("data"),
+                title: Text(widget.calculationService.alcohol.toString()),
                 background: Image.network(
                   "https://gdb.voanews.com/94005114-AEB2-4C0B-AC85-FC2605E2B75E_cx0_cy3_cw0_w1023_r1_s.jpg",
                   fit: BoxFit.cover,),
@@ -59,7 +71,8 @@ class MainscreenView extends MainscreenState{
               ),
               floating: true,
 
-            ),RefreshIndicator(child: SliverFixedExtentList(
+            ),
+            SliverFixedExtentList(
               itemExtent: 100,
               delegate: SliverChildBuilderDelegate(
                 (BuildContext contex, int index){
@@ -67,7 +80,7 @@ class MainscreenView extends MainscreenState{
                 },
                 childCount: widget.selectedAlcohol.drinkList.length,
               ),
-            ),onRefresh: (){},)
+            )
             
               /*ListView.builder(
               padding: new EdgeInsets.all(8.0),
